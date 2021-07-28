@@ -5,8 +5,9 @@ This is a template to create an Express-Server using Typescript
 Entry point: `src/server.ts`
 There you can also find the configuration for the `baseUrl`, `controllers`, `middleWares` and `port`
 
+### Example:
 ```js
-// file: /src/server.ts
+// file: src/server.ts
 
 import App from "./app";
 
@@ -45,7 +46,7 @@ To register the controller add an instance to the corresponding array in `src/se
 ### Example:
 
 ```js
-// file: /src/controllers/HelloWorldController.ts
+// file: src/controllers/HelloWorldController.ts
 
 import { Request, Response } from "express";
 import ControllerBase from "./ControllerBase";
