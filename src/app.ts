@@ -16,7 +16,7 @@ class App {
 
     constructor(appInit?: {
         port?: number;
-        middleWares?: any[];
+        middleWares?: Middleware[];
         controllers?: ControllerBase[];
         baseUrl?: string;
     }) {
@@ -28,9 +28,7 @@ class App {
         this.routes(appInit.controllers);
     }
 
-    private middlewares(middleWares: {
-        forEach: (arg0: (middleWare: any) => void) => void;
-    }) {
+    private middlewares(middleWares: Middleware[]) {
         middleWares.forEach((middleWare) => {
             this.app.use(middleWare);
         });
@@ -43,7 +41,7 @@ class App {
     }
 
     public listen() {
-        this.app.listen(this.port, () => {
+        return this.app.listen(this.port, () => {
             console.log(
                 `App listening on the http://localhost:${this.port}/api`
             );
