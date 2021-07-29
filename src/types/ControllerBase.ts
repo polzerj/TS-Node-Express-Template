@@ -14,11 +14,11 @@ export default abstract class ControllerBase {
     }
 
     public initRoutes() {
-        !!this.get && this.router.get(this.path, this.get);
-        !!this.post && this.router.post(this.path, this.post);
-        !!this.delete && this.router.delete(this.path, this.delete);
-        !!this.put && this.router.put(this.path, this.put);
-        !!this.patch && this.router.patch(this.path, this.patch);
+        this.router.get(this.path, this.get);
+        this.router.post(this.path, this.post);
+        this.router.delete(this.path, this.delete);
+        this.router.put(this.path, this.put);
+        this.router.patch(this.path, this.patch);
     }
 
     get(req: Request, res: Response) {
