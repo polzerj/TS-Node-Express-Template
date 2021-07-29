@@ -48,8 +48,7 @@ To register the controller add an instance to the corresponding array in `src/se
 ```js
 // file: src/controllers/HelloWorldController.ts
 
-import { Request, Response } from "express";
-import ControllerBase from "./ControllerBase";
+import { ControllerBase, Request, Response } from "@tsEx/types";
 
 export default class HelloWorldController extends ControllerBase {
     constructor() {
