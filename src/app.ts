@@ -3,7 +3,7 @@ import * as express from "express";
 import { Application } from "express";
 
 const standardInit = {
-    port: 5000,
+    port: +process.env.PORT || 5000,
     controllers: [],
     middleWares: [],
     baseUrl: "/",
