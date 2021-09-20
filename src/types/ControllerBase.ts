@@ -1,4 +1,14 @@
+import { Middleware } from "@tsEx/types";
 import { Request, Response, Router } from "express";
+
+interface MiddlewareParam {
+    all: Middleware[];
+    get: Middleware[];
+    post: Middleware[];
+    put: Middleware[];
+    patch: Middleware[];
+    delete: Middleware[];
+}
 
 export default abstract class ControllerBase {
     path: string;
@@ -8,17 +18,28 @@ export default abstract class ControllerBase {
         return this.path;
     }
 
-    constructor(path: string) {
+    constructor(path: string, middlewareParam?: MiddlewareParam) {
         this.path = path;
-        this.initRoutes();
+        this.initRoutes(middlewareParam);
     }
 
-    public initRoutes() {
-        this.router.get(this.path, this.get);
-        this.router.post(this.path, this.post);
-        this.router.delete(this.path, this.delete);
-        this.router.put(this.path, this.put);
-        this.router.patch(this.path, this.patch);
+    public initRoutes(middlewareParam?: MiddlewareParam) {
+        const {
+            all,
+            get,
+            post,
+            put,
+            patch,
+            delete: dlt,
+        } = Object.assign<MiddlewareParam, MiddlewareParam>(
+            { all: [], get: [], post: [], put: [], patch: [], delete: [] },
+            middlewareParam
+        );
+        this.router.get(this.path, ...all, ...get, this.get);
+        this.router.post(this.path, ...all, ...post, this.post);
+        this.router.delete(this.path, ...all, ...dlt, this.delete);
+        this.router.put(this.path, ...all, ...put, this.put);
+        this.router.patch(this.path, ...all, ...patch, this.patch);
     }
 
     get(req: Request, res: Response) {
