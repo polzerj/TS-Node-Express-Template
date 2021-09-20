@@ -22,18 +22,18 @@ export default abstract class ControllerBase {
     }
 
     get(req: Request, res: Response) {
-        res.sendStatus(404);
+        res.sendStatus(405);
     }
     post(req: Request, res: Response) {
-        res.sendStatus(404);
+        res.sendStatus(405);
     }
     delete(req: Request, res: Response) {
-        res.sendStatus(404);
+        res.sendStatus(405);
     }
     put(req: Request, res: Response) {
-        res.sendStatus(404);
+        res.sendStatus(405);
     }
     patch(req: Request, res: Response) {
-        res.sendStatus(404);
+        res.sendStatus(405);
     }
 }
