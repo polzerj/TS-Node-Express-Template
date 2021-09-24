@@ -1,4 +1,4 @@
-import { ControllerBase, Middleware } from "@tsEx/types";
+import { ControllerBase, Middleware } from "./types/types";
 import * as express from "express";
 import { Application } from "express";
 
