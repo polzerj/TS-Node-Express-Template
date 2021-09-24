@@ -1,4 +1,4 @@
-import { ControllerBase, Request, Response } from "@tsEx/types";
+import { ControllerBase, Request, Response } from "../types/types";
 
 export default class HelloWorldController extends ControllerBase {
     constructor() {

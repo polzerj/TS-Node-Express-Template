@@ -1,4 +1,4 @@
-import { Middleware, Request, Response } from "@tsEx/types";
+import { Middleware, Request, Response } from "../types/types";
 
 const loggerMiddleware: Middleware = (req: Request, resp: Response, next) => {
     console.log("Request logged:", req.method, req.path);

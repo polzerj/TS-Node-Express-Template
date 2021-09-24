@@ -1,4 +1,4 @@
-import { Middleware } from "@tsEx/types";
+import { Middleware } from "./types";
 import { Request, Response, Router } from "express";
 
 interface MiddlewareParam {
